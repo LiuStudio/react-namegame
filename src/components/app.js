@@ -4,7 +4,7 @@ import PeopleName from './peoplename';
 import Counters from './counters';
 import $ from 'jquery';
 //const data=require('../../db.json');
-
+//Little change so I can commit a PR for code review
 
 //setTimeout(()=>{console.log('data is '+JSON.stringify(data[0]));}, 3000);
 
