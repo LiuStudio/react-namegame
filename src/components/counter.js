@@ -1,20 +1,19 @@
 import React from 'react';
 
-export default class Counter extends React.Component{
-	constructor(props){
-		super(props);
-	};
+const Counter = ({
+		text,
+		counts
+	})=> (
 
+		<div className="btn btn-success btn-lg">
+		  	  <label> {text}</label>
+		      <p>{counts}</p>
+		</div>
+	);
 
-	render(){
-
-		return(
-			  
-			  	<div className="btn btn-success btn-lg">
-					  	  <label> {this.props.text}</label>
-					      <p>{this.props.counts}</p>
-				</div>
-			  
-			);
-	};
+Counter.propTypes = {
+	text : React.PropTypes.string,
+	counts: React.PropTypes.number
 }
+
+export default Counter;

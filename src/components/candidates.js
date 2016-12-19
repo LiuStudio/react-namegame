@@ -2,52 +2,33 @@ import React from 'react';
 import _ from 'lodash';
 import Candidate from './candidate';
 
-export default class Candidates extends React.Component{
-	constructor(props){
-		super(props);
-	};
-
-	renderItems(){
-		return _.map(this.props.candidatelist, (candidate,index) => <Candidate key={index} candidatename={candidate.name} candidateimg={candidate.url} candidatelocation={index} onClick={this.props.onClick.bind(this)}/>
-			);
-	};
-
-	// render(){
-
-	// 	return(
-	// 		<table>
-	// 			<tbody>
-	// 			<tr>
-	// 				<td>
-	// 					<Candidate candidatename={this.props.candidatename} candidateimg={this.props.candidateimg}/>
-	// 				</td>
-	// 				<td>
-	// 					<Candidate candidatename={this.props.candidatename} candidateimg={this.props.candidateimg}/>
-	// 				</td>
-	// 				<td>
-	// 					<Candidate candidatename={this.props.candidatename} candidateimg={this.props.candidateimg}/>
-	// 				</td>
-	// 				<td>
-	// 					<Candidate candidatename={this.props.candidatename} candidateimg={this.props.candidateimg}/>
-	// 				</td>
-	// 				<td>
-	// 					<Candidate candidatename={this.props.candidatename} candidateimg={this.props.candidateimg}/>
-	// 				</td>
-	// 			</tr>
-	// 			</tbody>
-	// 		</table>
-	// 		);
-	// };
-
-	render(){
-		return(
+const Candidates = ({
+		candidateList,
+		onClick
+})=>{
+	    const renderCandidate = ()=>( _.map(candidateList, (candidate,index) => <Candidate 
+															key={candidate.name} 
+															candidateName={candidate.name} 
+															candidateImage={candidate.url} 
+															onClick={onClick}
+														/>
+											 ));
+			
+	    
+	return (	
 		<table>
 			<tbody>
 				<tr>
-					{this.renderItems()};
+				{renderCandidate()}
 				</tr>
 			</tbody>
 		</table>
-		)
-	}
-}
+		);
+};
+
+	Candidates.propTypes = {
+		candidateList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+		onClick: React.PropTypes.func
+	};
+
+	export default Candidates;

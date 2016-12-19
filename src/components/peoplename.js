@@ -1,16 +1,13 @@
 import React from 'react';
 
-export default class PeopleName extends React.Component{
-	constructor(){
-		super();
-	};
-
-	render(){
-
-		return(
+const peopleNameLine = ({name})=>(
 			  <div>
-			  	<h1> Who is {this.props.peoplename} ?</h1>
+			  	<h1> Who is {name} ?</h1>
 			  </div>
-			);
-	};
-}
+);
+
+peopleNameLine.propTypes = {
+	name: React.PropTypes.string
+};
+
+export default peopleNameLine;

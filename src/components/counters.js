@@ -1,26 +1,25 @@
 import React from 'react';
 import Counter from './counter';
 
-export default class Counters extends React.Component{
-	constructor(props){
-		super(props);
-	};
+const Counters = ({correctCount, errorCount})=>(
+		 <table>
+		 	<tbody>
+		 		<tr>
+		 			<td>
+		  				<Counter counts={correctCount} text="Right" />
+		  			</td>
+		  			 <td>
+		  				<Counter counts={errorCount} text="Wrong"/>
+		  			</td>
+		  		</tr>
+		  	</tbody>
+		 </table> 
+	);
 
-	render(){
+Counters.propTypes = {
+	correctCount: React.PropTypes.number,
+	errorCount : React.PropTypes.number
+};
 
-		return(
-			 <table>
-			 	<tbody>
-			 		<tr>
-			 			<td>
-			  				<Counter counts={this.props.correctCnt} text="Right" />
-			  			</td>
-			  			<td>
-			  				<Counter counts={this.props.errorCnt} text="Wrong"/>
-			  			</td>
-			  		</tr>
-			  	</tbody>
-			 </table> 				
-			);	
-	};
-}
+export default Counters;
+					
