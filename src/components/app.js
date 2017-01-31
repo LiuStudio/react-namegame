@@ -1,7 +1,8 @@
 import React from 'react';
 import Candidates from './candidates';
-import PeopleName from './peoplename';
+import Config from '../config'
 import Counters from './counters';
+import PeopleName from './peoplename';
 //import $ from 'jquery';
 import fetch from 'isomorphic-fetch';
 
@@ -47,8 +48,8 @@ export default class App extends React.Component{
 	componentDidMount(){
 
 		let that = this;
-
-		fetch('http://api.namegame.willowtreemobile.com')
+		const endpoint = config.ENDPOINT;
+		fetch(endpoint)
     	.then((response) =>{
 	        if (response.status >= 400) {
 	            throw new Error("Bad response from server");
